@@ -6,13 +6,21 @@ use PuzzleInterface;
 
 class Puzzle2 extends Puzzle1 implements PuzzleInterface
 {
-    public function __construct(array $options = [])
+    public function getNextInSequence(array $data, int $index): int
     {
-        parent::__construct($options);
-    }
+        $dataCount = count($data);
+        $jump      = $dataCount / 2;
 
-    public function processInput(string $input)
-    {
-        parent::processInput($input);
+        // At the end of the array? Loop back to the beginning
+        if ($index + $jump < $dataCount) {
+            $nextIndex = $index + $jump;
+        } else {
+            $toEndOfArray = $dataCount - $index;
+            $nextIndex    = $jump - $toEndOfArray;
+        }
+
+        $nextInSequence = $data[$nextIndex];
+
+        return $nextInSequence;
     }
 }
