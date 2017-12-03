@@ -31,7 +31,7 @@ class Puzzle1 implements PuzzleInterface
                 continue;
             }
 
-            $data[$i] = preg_split("/\W+/", $rows[$i]);
+            $data[$i] = preg_split("/\s+/", $rows[$i]);
         }
 
         return $data;
