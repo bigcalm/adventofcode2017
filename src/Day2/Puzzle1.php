@@ -27,7 +27,11 @@ class Puzzle1 implements PuzzleInterface
         $rows = explode("\n", $input);
 
         for ($i = 0; $i < count($rows); $i++) {
-            $data[$i] = preg_split("/\W/", $rows[$i]);
+            if (empty($rows[$i])) {
+                continue;
+            }
+
+            $data[$i] = preg_split("/\W+/", $rows[$i]);
         }
 
         return $data;
