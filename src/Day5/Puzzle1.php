@@ -93,7 +93,7 @@ class Puzzle1 implements PuzzleInterface
         return $this->instructions[$this->getCurrentInstructionLocation()];
     }
 
-    public function incrementCurrentInstructionValue(): self
+    public function incrementCurrentInstructionValue()
     {
         $this->instructions[$this->getCurrentInstructionLocation()] += 1;
 
